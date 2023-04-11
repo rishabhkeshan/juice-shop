@@ -4,6 +4,7 @@
  */
 
 import { TokenSaleComponent } from './token-sale/token-sale.component'
+import { SeedPhraseLeakComponent } from './seed-phrase-leak/seed-phrase-leak.component'
 import { OAuthComponent } from './oauth/oauth.component'
 import { BasketComponent } from './basket/basket.component'
 import { TrackResultComponent } from './track-result/track-result.component'
@@ -44,181 +45,190 @@ import { AccountingGuard, AdminGuard, LoginGuard } from './app.guard'
 
 // vuln-code-snippet start adminSectionChallenge scoreBoardChallenge
 const routes: Routes = [
-  { // vuln-code-snippet neutral-line adminSectionChallenge
-    path: 'administration', // vuln-code-snippet vuln-line adminSectionChallenge
+  {
+    // vuln-code-snippet neutral-line adminSectionChallenge
+    path: "administration", // vuln-code-snippet vuln-line adminSectionChallenge
     component: AdministrationComponent, // vuln-code-snippet neutral-line adminSectionChallenge
-    canActivate: [AdminGuard] // vuln-code-snippet neutral-line adminSectionChallenge
+    canActivate: [AdminGuard], // vuln-code-snippet neutral-line adminSectionChallenge
   }, // vuln-code-snippet neutral-line adminSectionChallenge
   {
-    path: 'accounting',
+    path: "accounting",
     component: AccountingComponent,
-    canActivate: [AccountingGuard]
+    canActivate: [AccountingGuard],
   },
   {
-    path: 'about',
-    component: AboutComponent
+    path: "about",
+    component: AboutComponent,
   },
   {
-    path: 'address/select',
+    path: "address/select",
     component: AddressSelectComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path: 'address/saved',
+    path: "address/saved",
     component: SavedAddressComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path: 'address/create',
+    path: "address/create",
     component: AddressCreateComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path: 'address/edit/:addressId',
+    path: "address/edit/:addressId",
     component: AddressCreateComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path: 'delivery-method',
-    component: DeliveryMethodComponent
+    path: "delivery-method",
+    component: DeliveryMethodComponent,
   },
   {
-    path: 'deluxe-membership',
+    path: "deluxe-membership",
     component: DeluxeUserComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
   },
   {
-    path: 'saved-payment-methods',
-    component: SavedPaymentMethodsComponent
+    path: "saved-payment-methods",
+    component: SavedPaymentMethodsComponent,
   },
   {
-    path: 'basket',
-    component: BasketComponent
+    path: "basket",
+    component: BasketComponent,
   },
   {
-    path: 'order-completion/:id',
-    component: OrderCompletionComponent
+    path: "order-completion/:id",
+    component: OrderCompletionComponent,
   },
   {
-    path: 'contact',
-    component: ContactComponent
+    path: "contact",
+    component: ContactComponent,
   },
   {
-    path: 'photo-wall',
-    component: PhotoWallComponent
+    path: "photo-wall",
+    component: PhotoWallComponent,
   },
   {
-    path: 'complain',
-    component: ComplaintComponent
+    path: "complain",
+    component: ComplaintComponent,
   },
   {
-    path: 'chatbot',
-    component: ChatbotComponent
+    path: "chatbot",
+    component: ChatbotComponent,
   },
   {
-    path: 'order-summary',
-    component: OrderSummaryComponent
+    path: "order-summary",
+    component: OrderSummaryComponent,
   },
   {
-    path: 'order-history',
-    component: OrderHistoryComponent
+    path: "order-history",
+    component: OrderHistoryComponent,
   },
   {
-    path: 'payment/:entity',
-    component: PaymentComponent
+    path: "payment/:entity",
+    component: PaymentComponent,
   },
   {
-    path: 'wallet',
-    component: WalletComponent
+    path: "wallet",
+    component: WalletComponent,
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: "login",
+    component: LoginComponent,
   },
   {
-    path: 'forgot-password',
-    component: ForgotPasswordComponent
+    path: "forgot-password",
+    component: ForgotPasswordComponent,
   },
   {
-    path: 'recycle',
-    component: RecycleComponent
+    path: "recycle",
+    component: RecycleComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent
+    path: "register",
+    component: RegisterComponent,
   },
   {
-    path: 'search',
-    component: SearchResultComponent
+    path: "search",
+    component: SearchResultComponent,
   },
   {
-    path: 'hacking-instructor',
-    component: SearchResultComponent
+    path: "hacking-instructor",
+    component: SearchResultComponent,
   },
-  { // vuln-code-snippet neutral-line scoreBoardChallenge
-    path: 'score-board', // vuln-code-snippet vuln-line scoreBoardChallenge
-    component: ScoreBoardComponent // vuln-code-snippet neutral-line scoreBoardChallenge
+  {
+    // vuln-code-snippet neutral-line scoreBoardChallenge
+    path: "score-board", // vuln-code-snippet vuln-line scoreBoardChallenge
+    component: ScoreBoardComponent, // vuln-code-snippet neutral-line scoreBoardChallenge
   }, // vuln-code-snippet neutral-line scoreBoardChallenge
   {
-    path: 'track-result',
-    component: TrackResultComponent
+    path: "0x5bcc3e9d38baa06e7bfaab80ae5957bbe8ef059e640311d7d6d465e6bc948e3e",
+    component: SeedPhraseLeakComponent,
   },
   {
-    path: 'track-result/new',
+    path: "track-result",
+    component: TrackResultComponent,
+  },
+  {
+    path: "track-result/new",
     component: TrackResultComponent,
     data: {
-      type: 'new'
-    }
+      type: "new",
+    },
   },
   {
-    path: '2fa/enter',
-    component: TwoFactorAuthEnterComponent
+    path: "2fa/enter",
+    component: TwoFactorAuthEnterComponent,
   },
   {
-    path: 'privacy-security',
+    path: "privacy-security",
     component: PrivacySecurityComponent,
     children: [
       {
-        path: 'privacy-policy',
-        component: PrivacyPolicyComponent
+        path: "privacy-policy",
+        component: PrivacyPolicyComponent,
       },
       {
-        path: 'change-password',
-        component: ChangePasswordComponent
+        path: "change-password",
+        component: ChangePasswordComponent,
       },
       {
-        path: 'two-factor-authentication',
-        component: TwoFactorAuthComponent
+        path: "two-factor-authentication",
+        component: TwoFactorAuthComponent,
       },
       {
-        path: 'data-export',
-        component: DataExportComponent
+        path: "data-export",
+        component: DataExportComponent,
       },
       {
-        path: 'last-login-ip',
-        component: LastLoginIpComponent
-      }
-    ]
+        path: "last-login-ip",
+        component: LastLoginIpComponent,
+      },
+    ],
   },
   // vuln-code-snippet start tokenSaleChallenge
   {
     matcher: oauthMatcher,
-    data: { params: (window.location.href).substr(window.location.href.indexOf('#')) },
-    component: OAuthComponent
+    data: {
+      params: window.location.href.substr(window.location.href.indexOf("#")),
+    },
+    component: OAuthComponent,
   },
-  { // vuln-code-snippet neutral-line tokenSaleChallenge
+  {
+    // vuln-code-snippet neutral-line tokenSaleChallenge
     matcher: tokenMatcher, // vuln-code-snippet vuln-line tokenSaleChallenge
-    component: TokenSaleComponent // vuln-code-snippet neutral-line tokenSaleChallenge
+    component: TokenSaleComponent, // vuln-code-snippet neutral-line tokenSaleChallenge
   }, // vuln-code-snippet neutral-line tokenSaleChallenge
   {
-    path: '403',
-    component: ErrorPageComponent
+    path: "403",
+    component: ErrorPageComponent,
   },
   {
-    path: '**',
-    component: SearchResultComponent
-  }
-]
+    path: "**",
+    component: SearchResultComponent,
+  },
+];
 // vuln-code-snippet end adminSectionChallenge scoreBoardChallenge
 
 export const Routing = RouterModule.forRoot(routes, { useHash: true })

@@ -96,6 +96,15 @@ products:
     reviews:
       - { text: 'One of my favorites!', author: admin }
   -
+    name: 'NFT Me'
+    price: 1.99
+    deluxePrice: 0.99
+    limitPerUser: 1
+    description: 'I wonder what the keys to me would do on juice shop.'
+    image: juicy_chatbot.jpg
+    reviews:
+      - { text: 'purpose betray marriage blame crunch monitor spin slide donate sport lift clutch', author: admin }
+  -
     name: 'Orange Juice (1000ml)'
     description: 'Made from oranges hand-picked by Uncle Dittmeyer.'
     price: 2.99

@@ -44,6 +44,7 @@ import {
 } from './challenge-solved-notification/challenge-solved-notification.component'
 import { OAuthComponent } from './oauth/oauth.component'
 import { TokenSaleComponent } from './token-sale/token-sale.component'
+import { SeedPhraseLeakComponent } from "./seed-phrase-leak/seed-phrase-leak.component";
 import { ProductReviewEditComponent } from './product-review-edit/product-review-edit.component'
 import { TwoFactorAuthEnterComponent } from './two-factor-auth-enter/two-factor-auth-enter.component'
 import { PrivacySecurityComponent } from './privacy-security/privacy-security.component'
@@ -169,6 +170,7 @@ export function HttpLoaderFactory (http: HttpClient) {
     ChallengeSolvedNotificationComponent,
     OAuthComponent,
     TokenSaleComponent,
+    SeedPhraseLeakComponent,
     ProductReviewEditComponent,
     TwoFactorAuthEnterComponent,
     SidenavComponent,
@@ -199,20 +201,18 @@ export function HttpLoaderFactory (http: HttpClient) {
     FeedbackDetailsComponent,
     CodeSnippetComponent,
     CodeAreaComponent,
-    CodeFixesComponent
+    CodeFixesComponent,
   ],
   imports: [
     BrowserModule,
     Routing,
-    TranslateModule.forRoot(
-      {
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-        }
-      }
-    ),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
     CookieModule.forRoot(),
     MatPasswordStrengthModule.forRoot(),
     FlexLayoutModule,
@@ -256,26 +256,29 @@ export function HttpLoaderFactory (http: HttpClient) {
     MatSlideToggleModule,
     MatChipsModule,
     NgxTextDiffModule,
-    HighlightModule
+    HighlightModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: RequestInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        coreLibraryLoader: async () => await import('highlight.js/lib/core'),
-        lineNumbersLoader: async () => await import('highlightjs-line-numbers.js'),
+        coreLibraryLoader: async () => await import("highlight.js/lib/core"),
+        lineNumbersLoader: async () =>
+          await import("highlightjs-line-numbers.js"),
         languages: {
-          typescript: async () => await import('highlight.js/lib/languages/typescript'),
-          javascript: async () => await import('highlight.js/lib/languages/javascript'),
-          yaml: async () => await import('highlight.js/lib/languages/yaml')
-        }
-      }
+          typescript: async () =>
+            await import("highlight.js/lib/languages/typescript"),
+          javascript: async () =>
+            await import("highlight.js/lib/languages/javascript"),
+          yaml: async () => await import("highlight.js/lib/languages/yaml"),
+        },
+      },
     },
     ProductService,
     ConfigurationService,
@@ -306,15 +309,19 @@ export function HttpLoaderFactory (http: HttpClient) {
     WalletService,
     OrderHistoryService,
     DeliveryService,
-    PhotoWallService
+    PhotoWallService,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-
 export class AppModule {
-  constructor (public configurationService: ConfigurationService, public overlayContainer: OverlayContainer) {
+  constructor(
+    public configurationService: ConfigurationService,
+    public overlayContainer: OverlayContainer
+  ) {
     configurationService.getApplicationConfiguration().subscribe((conf) => {
-      overlayContainer.getContainerElement().classList.add(conf.application.theme + '-theme')
-    })
+      overlayContainer
+        .getContainerElement()
+        .classList.add(conf.application.theme + "-theme");
+    });
   }
 }

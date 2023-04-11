@@ -60,7 +60,7 @@
     "package:ci": "npm prune --production && npm dedupe && cd frontend && npm prune --legacy-peer-deps --production && cd .. && grunt package",
     "serve": "concurrently --kill-others \"ts-node app.ts\" \"cd frontend && ng serve\"",
     "serve:dev": "concurrently --kill-others \"ts-node-dev app.ts\" \"cd frontend && ng serve\"",
-    "start": "node build/app",
+    "start": "nodemon build/app",
     "test": "cd frontend && ng test --watch=false --source-map=true && cd .. && npm run test:server",
     "test:chromium": "cd frontend && ng test --watch=false --source-map=false --browsers=ChromiumHeadless && cd .. && npm run test:server",
     "test:server": "nyc --report-dir=./build/reports/coverage/server-tests mocha -r ts-node/register -r source-map-support/register --recursive test/server/**/*.ts",

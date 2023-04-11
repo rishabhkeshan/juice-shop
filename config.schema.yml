@@ -199,6 +199,11 @@ ctf:
         type: string
       code:
         type: string
+    seedPhraseLeakChallenge:
+      name:
+        type: string
+      code:
+        type: string
     errorHandlingChallenge:
       name:
         type: string
