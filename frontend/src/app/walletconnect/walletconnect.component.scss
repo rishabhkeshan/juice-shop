@@ -1,0 +1,173 @@
+// @import '~codemirror/lib/codemirror.css';
+// @import '~codemirror/theme/dracula';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  margin: 25px;
+  justify-content: center;
+  h2 {
+    margin: 2px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    padding: 12px 16px;
+    border-radius: 8px;
+  }
+}
+.section-1 {
+  &_body {
+    display: flex;
+    padding: 40px 80px;
+    gap: 16px;
+
+    &_left {
+      display: flex;
+      gap: 16px;
+      width: 75%;
+
+      &_editor_title {
+        font-size: 20px;
+        font-weight: 500;
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 0px 8px;
+      }
+    }
+    &_right {
+      width: 25%;
+
+      margin: 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // justify-content: center;
+      position: relative;
+      h1 {
+        padding: 0;
+        margin: 2px;
+      }
+      h5 {
+        text-align: center;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      .deployedaddresstext {
+        margin: 10px 0px;
+        font-weight: 600;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        color: lightgreen;
+      }
+      button {
+        position: absolute;
+        bottom: 20px;
+        justify-self: end;
+        border-radius: 10px;
+        width: fit-content;
+        height: fit-content;
+        padding: 16px 24px;
+        border: none;
+        background-color: #463471;
+        cursor: pointer;
+        font-weight: 500;
+        color: white;
+      }
+    }
+  }
+}
+.section-2 {
+  &_body {
+    display: flex;
+    padding: 40px 80px;
+    gap: 16px;
+    &_left {
+      width: 30%;
+      img {
+        width: 100%;
+      }
+    }
+    &_right {
+      width: 70%;
+    }
+    .withdraw_button {
+      justify-self: end;
+      border-radius: 10px;
+      margin-top: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 24px;
+      border: none;
+      background-color: #9c8639;
+      cursor: pointer;
+      font-weight: 500;
+      color: white;
+    }
+    .mint_button {
+      justify-self: end;
+      border-radius: 10px;
+      margin-top: 30px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 48px;
+      border: none;
+      background-color: #1c598b;
+      cursor: pointer;
+      font-weight: 500;
+      color: white;
+    }
+    .withdraw_inputcontainer {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .withdraw_input {
+      background-color: #524a63;
+      padding: 4px;
+      border: none;
+      width: 150px;
+      margin-left: 4px;
+      color: white;
+      outline: none;
+      :focus {
+      }
+    }
+    .myjuicebalance_text {
+      font-size: 18px;
+      margin: 40px 0px;
+      padding: 6px;
+
+      border: 1px solid white;
+      border-radius: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    .juicebalance_text {
+      font-size: 18px;
+      margin-top: 20px;
+      padding: 6px 0px;
+    }
+  }
+}
+.ngx-codemirror {
+  width: 50%;
+  height: 400px; /* Adjust the height as needed */
+}
+
+/* Adjust the font size and other styles of the editor content */
+.CodeMirror {
+  font-size: 14px;
+  border-radius: 16px !important;
+  /* Add other desired styles here */
+}
+.CodeMirror .cm-s-dracula .CodeMirror-wrap {
+  border-radius: 16px !important;
+}

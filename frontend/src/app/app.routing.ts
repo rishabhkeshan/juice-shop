@@ -42,6 +42,7 @@ import { PhotoWallComponent } from './photo-wall/photo-wall.component'
 import { DeluxeUserComponent } from './deluxe-user/deluxe-user.component'
 import { AccountingGuard, AdminGuard, LoginGuard } from './app.guard'
 import { SeedPhraseLeakComponent } from './seed-phrase-leak/seed-phrase-leak.component'
+import { WalletconnectComponent } from './walletconnect/walletconnect.component'
 
 // vuln-code-snippet start adminSectionChallenge scoreBoardChallenge
 const routes: Routes = [
@@ -54,6 +55,10 @@ const routes: Routes = [
     path: 'accounting',
     component: AccountingComponent,
     canActivate: [AccountingGuard]
+  },
+  {
+    path: 'wallet-poc',
+    component: WalletconnectComponent
   },
   {
     path: 'about',
