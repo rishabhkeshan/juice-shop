@@ -19,7 +19,15 @@
 	},
 	"adminSectionChallenge_1_correct.ts": {
 		"added": [
-			7
+			7,
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
 		],
 		"removed": [
 			7,
@@ -28,15 +36,42 @@
 		]
 	},
 	"adminSectionChallenge_2.ts": {
-		"added": [],
+		"added": [
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
+		],
 		"removed": []
 	},
 	"adminSectionChallenge_3.ts": {
-		"added": [],
+		"added": [
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
+		],
 		"removed": []
 	},
 	"adminSectionChallenge_4.ts": {
-		"added": [],
+		"added": [
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
+		],
 		"removed": []
 	},
 	"changeProductChallenge_1.ts": {
@@ -416,16 +451,46 @@
 		"removed": []
 	},
 	"scoreBoardChallenge_1_correct.ts": {
-		"added": [],
-		"removed": []
+		"added": [
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
+		],
+		"removed": [
+			115
+		]
 	},
 	"scoreBoardChallenge_2.ts": {
-		"added": [],
-		"removed": []
+		"added": [
+			13,
+			14,
+			15,
+			16,
+			162,
+			163,
+			164,
+			165
+		],
+		"removed": [
+			115
+		]
 	},
 	"scoreBoardChallenge_3.ts": {
 		"added": [
-			117
+			13,
+			14,
+			15,
+			16,
+			121,
+			162,
+			163,
+			164,
+			165
 		],
 		"removed": []
 	},
