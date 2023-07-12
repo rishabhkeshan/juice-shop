@@ -87,10 +87,10 @@
   tags:
     - Contraption
     - Good for Demos
-  description: 'Seed Phrase posted accidentally online'
-  difficulty: 3
-  hint: 'Find keys to my wallet which lead to a hidden URL on Juice Shop'
-  hintUrl: ''
+  description: 'Take ownership of the wallet seed posted accidentally'
+  difficulty: 2
+  hint: 'Use a BIP 39/44 wallet derivation or import the seedphrase into a fresh browser wallet e.g. Metamask'
+  hintUrl: 'https://iancoleman.io/bip39/'
   mitigationUrl: ~
   key: seedPhraseLeakChallenge
 -
