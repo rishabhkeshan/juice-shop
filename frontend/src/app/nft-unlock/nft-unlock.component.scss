@@ -73,6 +73,10 @@ mat-card:nth-child(1) {
   margin-top: 16px;
 }
 
+.form-group {
+  margin-top: 16px;
+}
+
 label {
   font-weight: bold;
 }
@@ -82,9 +86,16 @@ label {
   font-weight: 500;
 }
 
+.error-text {
+  color: #ff1818;
+  font-weight: 500;
+  padding-top: 4px;
+}
+
 input.form-control {
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-top: 4px;
   outline: none;
   padding: 8px;
   margin-top: 4px;
