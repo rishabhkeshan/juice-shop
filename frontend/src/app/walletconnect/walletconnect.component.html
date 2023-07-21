@@ -1,89 +1,130 @@
 <div class="header">
-  <div *ngIf="!session">
-    <h3>Sign in to your Web3 Wallet</h3>
+  <div>
     <button type="button" (click)="handleAuth()">
-      Authenticate via MetaMask
+      <span *ngIf="!session">Connect your MetaMask</span>
+      <span *ngIf="session"
+        >{{ userData.address.substring(0, 6) }}...{{
+          userData.address.slice(-6)
+        }}</span
+      >
     </button>
   </div>
-  <div *ngIf="session">
-    <h2>User Address:</h2>
-    <h3>{{ userData.address }}</h3>
-    <button type="button" (click)="signOut()">Sign out</button>
-  </div>
 </div>
-
-<div class="section-2">
-  <div class="section-2_body">
-      <div class="section-2_body_left">
-        <img src="assets/public/images/products/coaster.jpg" />
-      </div>
-    <div class="section-2_body_right">
-      <h1>Steal the NFT</h1>
-      <h5>
-        The juice shop NFT is for sale at 1000 JST which can be bought through Juice Tokens.
-        You can withdraw juice tokens and then buy the NFT.
-      </h5>
-      <div class="deployedaddresstext" *ngIf="deployedContractAddress">
-        Contract Address: {{ deployedContractAddress }}
-      </div>
-      <div class="juicebalance_text">
-        Juice Tokens in Contract: {{ juiceBalance }}
-      </div>
-      <div class="withdraw_inputcontainer">
-      <div>
-        <label for="withdrawAmount">Enter Withdrawal Amount:</label>
+<mat-card class="mat-elevation-z6 buy-nft">
+  <div class="faucet">
+    <h1>JST Faucet</h1>
+    <p style="text-align: center">
+      Welcome to the Juice Shop Token(JST) faucet. Claim your testnet tokens by
+      entering the amount of tokens you want and clicking on the withdraw button
+      below.
+    </p>
+    <div class="faucet_balance">Faucet Balance: {{ juiceBalance }} |  Your Juice Balance: {{ myJuiceBalance }}</div>
+    <div fxLayout="row" fxLayoutGap="20px" class="withdraw_inputcontainer">
+      <mat-form-field style="width: 100%;" color="accent" appearance="outline">
+        <mat-label>Enter Withdrawal Amount:</mat-label>
         <input
+          matInput
           placeholder="Enter Withdraw Amount"
-          class="withdraw_input"
           type="number"
           id="withdrawAmount"
           [(ngModel)]="withdrawAmount"
           min="1"
           max="1000"
+          aria-label="Text field for the withdrawal amount"
         />
-      </div>
-      <button class="withdraw_button" type="button" (click)="withdrawJuiceTokens()">
+      </mat-form-field>
+      <button
+        class="withdraw_button"
+        type="button"
+        (click)="withdrawJuiceTokens()"
+      >
         Withdraw Juice Tokens
       </button>
-      </div>
-      <div class="myjuicebalance_text">
-        My Juice Balance: {{ myJuiceBalance }}
-      </div>
-      <button class="mint_button" (click)="mintNFT()">Mint NFT - 1000 JST</button>
     </div>
   </div>
-</div>
-<div class="section-1">
-  <div class="section-1_body">
-    <div class="section-1_body_left">
-      <div>
-        <div class="section-1_body_left_editor_title">Deployed Contract</div>
-        <ngx-codemirror
-          [(ngModel)]="vulnerableContract"
-          [options]="editorDisabledOptions"
-        ></ngx-codemirror>
+</mat-card>
+<mat-card class="mat-elevation-z6 buy-nft">
+  <div class="section-2">
+    <div class="section-2_body">
+      <div class="section-2_body_left">
+        <img src="assets/public/images/products/coaster.jpg" />
       </div>
-      <div>
-      <div  class="section-1_body_left_editor_title">Attacker Contract</div>
+      <div class="section-2_body_right">
+        <h1>Steal the NFT</h1>
+        <h5>
+          The juice shop NFT is for sale at 1000 JST which can be bought through
+          Juice Shop Tokens. You can withdraw juice tokens from the faucet and then buy the NFT.
+        </h5>
+        <div class="deployedaddresstext" *ngIf="deployedContractAddress">
+          Contract Address: {{ deployedContractAddress }}
+        </div>
+        <!-- <div class="juicebalance_text">
+          Juice Tokens in Contract: {{ juiceBalance }}
+        </div> -->
 
-      <ngx-codemirror
-        [(ngModel)]="code"
-        [options]="editorOptions"
-      ></ngx-codemirror>
+        <!-- <div class="withdraw_inputcontainer">
+          <div>
+            <label for="withdrawAmount">Enter Withdrawal Amount:</label>
+            <input
+              placeholder="Enter Withdraw Amount"
+              class="withdraw_input"
+              type="number"
+              id="withdrawAmount"
+              [(ngModel)]="withdrawAmount"
+              min="1"
+              max="1000"
+            />
+          </div>
+          <button
+            class="withdraw_button"
+            type="button"
+            (click)="withdrawJuiceTokens()"
+          >
+            Withdraw Juice Tokens
+          </button>
+        </div> -->
+        <!-- <div class="myjuicebalance_text">
+          My Juice Balance: {{ myJuiceBalance }}
+        </div> -->
+        <button class="mint_button" (click)="mintNFT()">
+          Mint NFT - 1000 JST
+        </button>
       </div>
-    </div>
-    <div class="section-1_body_right">
-      <h1>Try and Own Me</h1>
-      <h5>
-        Edit the contract on the right(Attacker Contract) to somehow own the funds in the main
-        deployed contract.
-      </h5>
-      <div class="deployedaddresstext" *ngIf="deployedContractAddress">
-        Contract Address: {{ deployedContractAddress }}
-      </div>
-      <button type="button" (click)="compileAndDeployCode(code)">
-        Deploy Contract
-      </button>
     </div>
   </div>
-</div>
+</mat-card>
+
+<!-- <div class="section-1">
+    <div class="section-1_body">
+      <div class="section-1_body_left">
+        <div>
+          <div class="section-1_body_left_editor_title">Deployed Contract</div>
+          <ngx-codemirror
+            [(ngModel)]="vulnerableContract"
+            [options]="editorDisabledOptions"
+          ></ngx-codemirror>
+        </div>
+        <div>
+          <div class="section-1_body_left_editor_title">Attacker Contract</div>
+
+          <ngx-codemirror
+            [(ngModel)]="code"
+            [options]="editorOptions"
+          ></ngx-codemirror>
+        </div>
+      </div>
+      <div class="section-1_body_right">
+        <h1>Try and Own Me</h1>
+        <h5>
+          Edit the contract on the right(Attacker Contract) to somehow own the
+          funds in the main deployed contract.
+        </h5>
+        <div class="deployedaddresstext" *ngIf="deployedContractAddress">
+          Contract Address: {{ deployedContractAddress }}
+        </div>
+        <button type="button" (click)="compileAndDeployCode(code)">
+          Deploy Contract
+        </button>
+      </div>
+    </div>
+  </div> -->

@@ -1,10 +1,15 @@
 // @import '~codemirror/lib/codemirror.css';
 // @import '~codemirror/theme/dracula';
 
+.buy-nft {
+  width: 55%;
+  margin: auto;
+  margin-bottom: 30px;
+}
 .header {
   display: flex;
   flex-direction: row;
-  margin: 25px;
+  margin: 16px;
   justify-content: center;
   h2 {
     margin: 2px;
@@ -18,8 +23,46 @@
     background-color: green;
     color: white;
     font-size: 18px;
-    padding: 12px 16px;
+    padding: 12px 8px;
     border-radius: 8px;
+    width: 250px;
+    cursor: pointer;
+  }
+}
+.faucet {
+  padding: 40px 80px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+  }
+  .faucet_balance {
+    font-size: 18px;
+    margin: 20px 0px;
+    padding: 8px;
+
+    border: 1px solid #659F44;
+    border-radius: 10px;
+    width: 100%;
+    color: #659F44;
+    text-align: center;
+  }
+  .withdraw_inputcontainer {
+    width: 100%;
+    align-items: center;
+    button {
+      justify-self: end;
+      border-radius: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 24px;
+      border: none;
+      background-color: #9c8639;
+      cursor: pointer;
+      font-weight: 500;
+      color: white;
+      margin-top: -20px;
+      width: 300px;
+    }
   }
 }
 .section-1 {
@@ -90,13 +133,13 @@
     padding: 40px 80px;
     gap: 16px;
     &_left {
-      width: 30%;
+      width: 35%;
       img {
         width: 100%;
       }
     }
     &_right {
-      width: 70%;
+      width: 65%;
     }
     .withdraw_button {
       justify-self: end;
@@ -114,11 +157,11 @@
     .mint_button {
       justify-self: end;
       border-radius: 10px;
-      margin-top: 30px;
       width: fit-content;
       height: fit-content;
       padding: 16px 48px;
       border: none;
+      margin-top: 32px;
       background-color: #1c598b;
       cursor: pointer;
       font-weight: 500;
