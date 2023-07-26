@@ -1,0 +1,219 @@
+// @import '~codemirror/lib/codemirror.css';
+// @import '~codemirror/theme/dracula';
+
+.buy-nft {
+  width: 55%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  margin: 16px;
+  justify-content: center;
+  h2 {
+    margin: 2px;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    color: white;
+    font-size: 18px;
+    padding: 12px 8px;
+    border-radius: 8px;
+    width: 250px;
+    cursor: pointer;
+  }
+}
+.faucet {
+  padding: 40px 80px;
+  &_image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    img{
+      width: 250px;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    margin: 0px;
+  }
+  .faucet_balance {
+    font-size: 18px;
+    margin: 20px 0px;
+    padding: 8px;
+
+    border: 1px solid #659F44;
+    border-radius: 10px;
+    width: 100%;
+    color: #659F44;
+    text-align: center;
+  }
+  .withdraw_inputcontainer {
+    width: 100%;
+    align-items: center;
+    button {
+      justify-self: end;
+      border-radius: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 24px;
+      border: none;
+      font-weight: 500;
+      color: white;
+      margin-top: -20px;
+      width: 300px;
+    }
+  }
+}
+.section-1 {
+  &_body {
+    display: flex;
+    padding: 40px 80px;
+    gap: 16px;
+
+    &_left {
+      display: flex;
+      gap: 16px;
+      width: 75%;
+
+      &_editor_title {
+        font-size: 20px;
+        font-weight: 500;
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 0px 8px;
+      }
+    }
+    &_right {
+      width: 25%;
+
+      margin: 32px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      // justify-content: center;
+      position: relative;
+      h1 {
+        padding: 0;
+        margin: 2px;
+      }
+      h5 {
+        text-align: center;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      .deployedaddresstext {
+        margin: 10px 0px;
+        font-weight: 600;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        color: lightgreen;
+      }
+      button {
+        position: absolute;
+        bottom: 20px;
+        justify-self: end;
+        border-radius: 10px;
+        width: fit-content;
+        height: fit-content;
+        padding: 16px 24px;
+        border: none;
+        background-color: #463471;
+        cursor: pointer;
+        font-weight: 500;
+        color: white;
+      }
+    }
+  }
+}
+.section-2 {
+  &_body {
+    display: flex;
+    padding: 40px 80px;
+    gap: 16px;
+    &_left {
+      width: 35%;
+      img {
+        width: 100%;
+      }
+    }
+    &_right {
+      width: 65%;
+    }
+    .withdraw_button {
+      justify-self: end;
+      border-radius: 10px;
+      margin-top: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 24px;
+      border: none;
+      font-weight: 500;
+      color: white;
+    }
+    .mint_button {
+      justify-self: end;
+      border-radius: 10px;
+      width: fit-content;
+      height: fit-content;
+      padding: 16px 48px;
+      border: none;
+      margin-top: 32px;
+      font-weight: 500;
+      color: white;
+    }
+    .withdraw_inputcontainer {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .withdraw_input {
+      background-color: #524a63;
+      padding: 4px;
+      border: none;
+      width: 150px;
+      margin-left: 4px;
+      color: white;
+      outline: none;
+      :focus {
+      }
+    }
+    .myjuicebalance_text {
+      font-size: 18px;
+      margin: 40px 0px;
+      padding: 6px;
+
+      border: 1px solid white;
+      border-radius: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    .juicebalance_text {
+      font-size: 18px;
+      margin-top: 20px;
+      padding: 6px 0px;
+    }
+  }
+}
+.ngx-codemirror {
+  width: 50%;
+  height: 400px; /* Adjust the height as needed */
+}
+
+/* Adjust the font size and other styles of the editor content */
+.CodeMirror {
+  font-size: 14px;
+  border-radius: 16px !important;
+  /* Add other desired styles here */
+}
+.CodeMirror .cm-s-dracula .CodeMirror-wrap {
+  border-radius: 16px !important;
+}
