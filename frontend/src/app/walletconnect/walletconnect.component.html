@@ -1,6 +1,11 @@
 <div class="header">
   <div>
-    <button type="button" (click)="handleAuth()">
+    <button
+      mat-raised-button
+      color="accent"
+      type="button"
+      (click)="handleAuth()"
+    >
       <span *ngIf="!session">Connect your MetaMask</span>
       <span *ngIf="session"
         >{{ userData.address.substring(0, 6) }}...{{
@@ -12,19 +17,26 @@
 </div>
 <mat-card class="mat-elevation-z6 buy-nft">
   <div class="faucet">
-    <h1>JST Faucet</h1>
+    <h1>BEE Haven</h1>
+    <div class="faucet_image">
+      <img src="assets/public/images/beeowner.png" />
+    </div>
     <p style="text-align: center">
-      Welcome to the Juice Shop Token(JST) faucet. Claim your testnet tokens by
-      entering the amount of tokens you want and clicking on the withdraw button
-      below.
+      Welcome to Bee Haven, the hive of BEE tokens! Immerse yourself in the buzz
+      as our generous Bee Owner shares the joy of bees with you. Embrace
+      their bountiful generosity, but remember, taking too many bees at once may
+      disrupt their harmonious abode.
     </p>
-    <div class="faucet_balance">Faucet Balance: {{ juiceBalance }} |  Your Juice Balance: {{ myJuiceBalance }}</div>
+    <div class="faucet_balance">
+      Faucet Balance: {{ juiceBalance }} | Your BEE Balance:
+      {{ myJuiceBalance }}
+    </div>
     <div fxLayout="row" fxLayoutGap="20px" class="withdraw_inputcontainer">
-      <mat-form-field style="width: 100%;" color="accent" appearance="outline">
-        <mat-label>Enter Withdrawal Amount:</mat-label>
+      <mat-form-field style="width: 100%" color="accent" appearance="outline">
+        <mat-label>Enter no. of BEEs:</mat-label>
         <input
           matInput
-          placeholder="Enter Withdraw Amount"
+          placeholder="Enter number of BEE"
           type="number"
           id="withdrawAmount"
           [(ngModel)]="withdrawAmount"
@@ -35,10 +47,12 @@
       </mat-form-field>
       <button
         class="withdraw_button"
+        mat-raised-button
         type="button"
+        color="primary"
         (click)="withdrawJuiceTokens()"
       >
-        Withdraw Juice Tokens
+        Claim BEEs
       </button>
     </div>
   </div>
@@ -47,14 +61,17 @@
   <div class="section-2">
     <div class="section-2_body">
       <div class="section-2_body_left">
-        <img src="assets/public/images/products/coaster.jpg" />
+        <img src="assets/public/images/honeypot.png" />
       </div>
       <div class="section-2_body_right">
-        <h1>Steal the NFT</h1>
-        <h5>
-          The juice shop NFT is for sale at 1000 JST which can be bought through
-          Juice Shop Tokens. You can withdraw juice tokens from the faucet and then buy the NFT.
-        </h5>
+        <h1>The Enchanted Honey Pot</h1>
+        <p>
+          Deep within the magical realm, the Enchanted Honey Pot awaits its
+          rightful owner. To unlock its wonders, you must trade the essence of
+          the buzzing kingdom - BEE tokens. Gather these mystical tokens from
+          the generous Bee Haven, but beware, for the Bee Owner's supply may not
+          be all that meets the eye.
+        </p>
         <div class="deployedaddresstext" *ngIf="deployedContractAddress">
           Contract Address: {{ deployedContractAddress }}
         </div>
@@ -86,8 +103,15 @@
         <!-- <div class="myjuicebalance_text">
           My Juice Balance: {{ myJuiceBalance }}
         </div> -->
-        <button class="mint_button" (click)="mintNFT()">
-          Mint NFT - 1000 JST
+        <button
+          class="mint_button"
+          mat-raised-button
+          color="warn"
+          [disabled]="mintButtonDisabled"
+          fxFlexAlign="center"
+          (click)="mintNFT()"
+        >
+          {{ nftMintText }}
         </button>
       </div>
     </div>

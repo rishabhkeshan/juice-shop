@@ -1,4 +1,5 @@
-import { Component, NgModule } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { KeysService } from "../Services/keys.service";
 
 import { getDefaultProvider, ethers, BigNumber } from "ethers";
 import {
@@ -19,8 +20,7 @@ const client = createClient({
   provider: getDefaultProvider(),
 });
 const vulnerableAddress = "0x7b95E1604189EFE1566278d2bD984e27614273e5";
-const contractAddress = "0x19251330389F2485f4a0E16657Cd364A1F537F7E";
-const nftAddress = "0xC56069A6f6FE8D74447B4D063e96D29c24352a27";
+const nftAddress = "0x5FDDEbB5bE5d2C2dfB2c758ED86D3E6A53366107";
 const vulnerableABI = [
   {
     inputs: [],
@@ -828,7 +828,305 @@ const contractAbi = [
     type: "function",
   },
 ];
-const abi = [
+
+const BeeTokenAddress = "0x36435796Ca9be2bf150CE0dECc2D8Fab5C4d6E13";
+
+const BeeTokenABI = [
+  {
+    inputs: [],
+    stateMutability: "nonpayable",
+    type: "constructor",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "Approval",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "from",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "to",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "value",
+        type: "uint256",
+      },
+    ],
+    name: "Transfer",
+    type: "event",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+    ],
+    name: "allowance",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "approve",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "account",
+        type: "address",
+      },
+    ],
+    name: "balanceOf",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "decimals",
+    outputs: [
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "subtractedValue",
+        type: "uint256",
+      },
+    ],
+    name: "decreaseAllowance",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "spender",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "addedValue",
+        type: "uint256",
+      },
+    ],
+    name: "increaseAllowance",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "recipient",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "mintTokens",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "name",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "symbol",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "totalSupply",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "recipient",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "transfer",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "sender",
+        type: "address",
+      },
+      {
+        internalType: "address",
+        name: "recipient",
+        type: "address",
+      },
+      {
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "transferFrom",
+    outputs: [
+      {
+        internalType: "bool",
+        name: "",
+        type: "bool",
+      },
+    ],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+];
+const BeeFaucetABI = [
   {
     inputs: [],
     name: "balance",
@@ -882,6 +1180,7 @@ const abi = [
     type: "function",
   },
 ];
+const BeeFaucetAddress = "0x860e3616aD0E0dEDc23352891f3E10C4131EA5BC";
 const overflowAddress = "0x530252Cd4983207b481009A4aA75E158564C1125";
 
 @Component({
@@ -890,12 +1189,18 @@ const overflowAddress = "0x530252Cd4983207b481009A4aA75E158564C1125";
   styleUrls: ["./walletconnect.component.scss"],
 })
 export class WalletconnectComponent {
+  constructor(private readonly keysService: KeysService) {}
+
   userData: object;
   session = "";
   deployedContractAddress = "";
   juiceBalance = 0;
   myJuiceBalance = 0;
-  withdrawAmount: number = 0;
+  withdrawAmount: number = null;
+  successResponse = false;
+  mintButtonDisabled = true;
+  challengeSolved = false;
+  nftMintText = "Mint the Pot - 1000 BEE";
   vulnerableContract: string = `pragma solidity ^0.7.0;
 
 
@@ -960,6 +1265,24 @@ contract VulnerableWallet {
   ngOnInit(): void {
     this.fetchJuiceBalance();
     this.fetchMyJuiceBalance();
+    this.checkNftMinted();
+  }
+
+  checkNftMinted() {
+    this.keysService.checkNftMinted().subscribe(
+      (response) => {
+        console.log(response.status,"res");
+        this.mintButtonDisabled = response.status;
+        this.challengeSolved = response.status;
+        if(response.status){
+          this.nftMintText = "Minted Successfully";
+        }
+      },
+      (error) => {
+        console.error(error);
+        this.successResponse = false;
+      }
+    );
   }
   async fetchMyJuiceBalance() {
     try {
@@ -969,8 +1292,8 @@ contract VulnerableWallet {
       // Replace the contract address and ABI with your Juice Token contract details
 
       const contract = new ethers.Contract(
-        contractAddress,
-        contractAbi,
+        BeeTokenAddress,
+        BeeTokenABI,
         signer
       );
       const userAddress = await signer.getAddress();
@@ -979,6 +1302,12 @@ contract VulnerableWallet {
       this.myJuiceBalance = balanceBigNumber
         .div(ethers.constants.WeiPerEther)
         .toNumber();
+      if (this.myJuiceBalance >= 1000 && !this.challengeSolved) {
+        this.mintButtonDisabled = false;
+      }
+      if (this.myJuiceBalance <= 1000 && !this.challengeSolved) {
+        this.mintButtonDisabled = true;
+      }
     } catch (error) {
       console.error("Error fetching Juice balance:", error);
     }
@@ -988,7 +1317,11 @@ contract VulnerableWallet {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
-      const contract = new ethers.Contract(overflowAddress, abi, signer);
+      const contract = new ethers.Contract(
+        BeeFaucetAddress,
+        BeeFaucetABI,
+        signer
+      );
       const balance = await contract.balance();
       console.log(balance);
       this.juiceBalance = balance;
@@ -1057,7 +1390,11 @@ contract VulnerableWallet {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
-      const contract = new ethers.Contract(overflowAddress, abi, signer);
+      const contract = new ethers.Contract(
+        BeeFaucetAddress,
+        BeeFaucetABI,
+        signer
+      );
       const tx = await contract.withdraw(amount);
       await tx.wait();
 
@@ -1069,63 +1406,89 @@ contract VulnerableWallet {
     }
   }
 
-async transferEthToContract() {
-  // Connect to the Ethereum network using the default provider
-  const provider = ethers.getDefaultProvider();
+  async transferEthToContract() {
+    // Connect to the Ethereum network using the default provider
+    const provider = ethers.getDefaultProvider();
 
-
-  try {
-    // Create a new wallet using the private key
+    try {
+      // Create a new wallet using the private key
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
-    // Create a new instance of the smart contract
-    const contract = new ethers.Contract(vulnerableAddress, vulnerableABI, signer);
+      // Create a new instance of the smart contract
+      const contract = new ethers.Contract(
+        vulnerableAddress,
+        vulnerableABI,
+        signer
+      );
 
-    // Set the amount to transfer (0.1 ETH)
-    const amount = ethers.utils.parseEther('0.1');
+      // Set the amount to transfer (0.1 ETH)
+      const amount = ethers.utils.parseEther("0.1");
 
-    // Call the receiveMoney function on the smart contract
-    const transaction = await contract.receiveMoney({ value: amount });
+      // Call the receiveMoney function on the smart contract
+      const transaction = await contract.receiveMoney({ value: amount });
 
-    // Wait for the transaction to be mined
-    await transaction.wait();
+      // Wait for the transaction to be mined
+      await transaction.wait();
 
-    console.log('ETH transferred successfully to the smart contract wallet.');
-  } catch (error) {
-    console.error('Failed to transfer ETH to the smart contract wallet:', error);
+      console.log("ETH transferred successfully to the smart contract wallet.");
+    } catch (error) {
+      console.error(
+        "Failed to transfer ETH to the smart contract wallet:",
+        error
+      );
+    }
   }
-}
 
   async mintNFT() {
+    this.nftMintText = "Awaiting Approval";
     try {
       // Create a provider and signer using the user's Ethereum account
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
       const amountToApprove = ethers.utils.parseUnits("1000", "18");
-      const jstContract = new ethers.Contract(
-        contractAddress,
-        contractAbi,
+      const BeeTokenContract = new ethers.Contract(
+        BeeTokenAddress,
+        BeeTokenABI,
         signer
       );
-      const approvalTx = await jstContract.approve(nftAddress, amountToApprove);
+      const approvalTx = await BeeTokenContract.approve(
+        nftAddress,
+        amountToApprove
+      );
 
       await approvalTx.wait();
-      // Create a contract instance using the contract address and ABI
-      const contract = new ethers.Contract(nftAddress, nftABI, signer);
+      this.nftMintText = "Confirm Mint...";
 
-      // Call the `mintNFT` function to mint the NFT
+      const contract = new ethers.Contract(nftAddress, nftABI, signer);
+      this.nftMintText = "Mint in Process...";
+
       const transaction = await contract.mintNFT();
+      console.log(transaction);
 
       // Wait for the transaction to be mined
-      await transaction.wait();
+      const mintConfirmation = await transaction.wait();
+      console.log(mintConfirmation);
+      if (mintConfirmation) {
+        this.nftMintText = "Successfully Minted";
+        this.mintButtonDisabled = false;
 
-      // Display a success message or perform any other actions
+        this.keysService.nftMinted().subscribe(
+          (response) => {
+            this.successResponse = response.status;
+          },
+          (error) => {
+            console.error(error);
+            this.successResponse = false;
+          }
+        );
+      }
+
       console.log("NFT minted successfully!");
     } catch (error) {
       console.error("Error minting NFT:", error);
     }
   }
-  
+
   async signOut() {
     await disconnect();
     this.session = "";
